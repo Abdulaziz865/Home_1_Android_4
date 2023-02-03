@@ -20,10 +20,10 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpObserver()
+        setUpObserves()
     }
 
-    private fun setUpObserver() = with(binding) {
+    private fun setUpObserves() = with(binding) {
         viewModel.getSingleAnimeScene(navArgs.id).observe(viewLifecycleOwner) {
             Glide.with(imageItemDetail.context).load(it.data.attributes.posterImage.original)
                 .into(imageItemDetail)

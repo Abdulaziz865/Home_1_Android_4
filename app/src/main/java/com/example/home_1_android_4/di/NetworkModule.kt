@@ -18,5 +18,6 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideAnimeApiService(retrofitClient: RetrofitClient): AnimeApiService = retrofitClient.provideAnimeApiService()
+    fun provideAnimeApiService(retrofitClient: RetrofitClient): AnimeApiService =
+        retrofitClient.provideAnimeApiService()
 }
