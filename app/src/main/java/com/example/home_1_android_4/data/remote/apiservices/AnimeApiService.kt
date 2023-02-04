@@ -9,10 +9,10 @@ import retrofit2.http.Path
 interface AnimeApiService {
 
     @GET("anime")
-    suspend fun getAnimeCharacters(): AnimeResponce<AnimeData>
+    suspend fun fetchAnime(): AnimeResponce<AnimeData>
 
     @GET("anime/{id}")
-    suspend fun getSingleCharacter(
+    suspend fun fetchAnimeById(
         @Path("id") id: Int
     ): AnimeDetail
 }

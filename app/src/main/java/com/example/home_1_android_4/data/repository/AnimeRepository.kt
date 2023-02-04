@@ -4,13 +4,13 @@ import androidx.lifecycle.liveData
 import com.example.home_1_android_4.data.remote.apiservices.AnimeApiService
 import javax.inject.Inject
 
-class AnimeRepositories @Inject constructor(private val animeApiService: AnimeApiService) {
+class AnimeRepository @Inject constructor(private val animeApiService: AnimeApiService) {
 
     fun getAnime() = liveData {
-        emit(animeApiService.getAnimeCharacters())
+        emit(animeApiService.fetchAnime())
     }
 
     fun getSingleAnime(id: Int) = liveData {
-        emit(animeApiService.getSingleCharacter(id))
+        emit(animeApiService.fetchAnimeById(id))
     }
 }

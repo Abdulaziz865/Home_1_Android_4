@@ -12,11 +12,11 @@ import com.example.home_1_android_4.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DetailFragment : Fragment(R.layout.fragment_detail) {
+class AnimeDetailFragment : Fragment(R.layout.fragment_detail) {
 
     private val binding by viewBinding(FragmentDetailBinding::bind)
-    private val navArgs by navArgs<DetailFragmentArgs>()
-    private val viewModel: DetailViewModel by viewModels()
+    private val navArgs by navArgs<AnimeDetailFragmentArgs>()
+    private val viewModel: AnimeDetailViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -1,4 +1,4 @@
-package com.example.home_1_android_4.ui.fragments.first
+package com.example.home_1_android_4.ui.fragments.anime
 
 import android.os.Bundle
 import android.view.View
@@ -12,9 +12,9 @@ import com.example.home_1_android_4.ui.adapter.AnimeAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FirstFragment : Fragment(R.layout.fragment_first) {
+class AnimeFragment : Fragment(R.layout.fragment_first) {
 
-    private val viewModel: FirstViewModel by viewModels()
+    private val viewModel: AnimeViewModel by viewModels()
     private val binding by viewBinding(FragmentFirstBinding::bind)
     private val animeAdapter = AnimeAdapter(this::onClickItem)
 
@@ -35,6 +35,6 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
     }
 
     private fun onClickItem(id: String) {
-        findNavController().navigate(FirstFragmentDirections.actionFirstFragmentToDetailFragment(id.toInt()))
+        findNavController().navigate(AnimeFragmentDirections.actionFirstFragmentToDetailFragment(id.toInt()))
     }
 }
