@@ -1,4 +1,4 @@
-package com.example.home_1_android_4.ui.fragments.detail
+package com.example.home_1_android_4.ui.fragments.anime.detail
 
 import android.os.Bundle
 import android.view.View

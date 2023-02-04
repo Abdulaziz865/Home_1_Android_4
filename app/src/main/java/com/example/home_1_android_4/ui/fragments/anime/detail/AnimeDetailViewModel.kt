@@ -1,4 +1,4 @@
-package com.example.home_1_android_4.ui.fragments.detail
+package com.example.home_1_android_4.ui.fragments.anime.detail
 
 import androidx.lifecycle.ViewModel
 import com.example.home_1_android_4.data.repository.AnimeRepository
