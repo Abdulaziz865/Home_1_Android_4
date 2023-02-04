@@ -1,7 +1,7 @@
 package com.example.home_1_android_4.di
 
 import com.example.home_1_android_4.data.remote.RetrofitClient
-import com.example.home_1_android_4.data.remote.api.AnimeApiService
+import com.example.home_1_android_4.data.remote.apiservices.AnimeApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

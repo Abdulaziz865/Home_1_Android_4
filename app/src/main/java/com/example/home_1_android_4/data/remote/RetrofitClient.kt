@@ -1,6 +1,6 @@
 package com.example.home_1_android_4.data.remote
 
-import com.example.home_1_android_4.data.remote.api.AnimeApiService
+import com.example.home_1_android_4.data.remote.apiservices.AnimeApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

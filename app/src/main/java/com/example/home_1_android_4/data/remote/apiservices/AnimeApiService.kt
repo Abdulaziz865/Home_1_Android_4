@@ -1,4 +1,4 @@
-package com.example.home_1_android_4.data.remote.api
+package com.example.home_1_android_4.data.remote.apiservices
 
 import com.example.home_1_android_4.data.models.AnimeData
 import com.example.home_1_android_4.data.models.AnimeResponce
