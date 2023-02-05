@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.anime.detail.AnimeDetailFragment">
+    tools:context=".ui.fragments.manga.detail.MangaDetailFragment">
 
     <ImageView
-        android:id="@+id/image_item_detail"
+        android:id="@+id/image_item_detail_manga"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/title_item_detail"
+        android:id="@+id/title_item_detail_manga"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"

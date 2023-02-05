@@ -1,6 +1,6 @@
-package com.example.home_1_android_4.data.models.detail
+package com.example.home_1_android_4.data.models.anime.detail
 
-import com.example.home_1_android_4.data.models.AnimeData
+import com.example.home_1_android_4.data.models.anime.AnimeData
 import com.google.gson.annotations.SerializedName
 
 data class AnimeDetail(

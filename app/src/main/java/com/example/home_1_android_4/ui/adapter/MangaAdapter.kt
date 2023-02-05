@@ -6,17 +6,17 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.home_1_android_4.data.models.anime.AnimeData
+import com.example.home_1_android_4.data.models.manga.MangaData
 import com.example.home_1_android_4.databinding.ItemRecyclerBinding
 
-class AnimeAdapter(private val onClickListener: (id: String) -> Unit) :
-    ListAdapter<AnimeData, AnimeAdapter.AnimeViewHolder>(diffUtil) {
+class MangaAdapter(private val onClickListener: (id: String) -> Unit) :
+    ListAdapter<MangaData, MangaAdapter.MangaViewHolder>(diffUtil) {
 
-    inner class AnimeViewHolder(private val binding: ItemRecyclerBinding) :
+    inner class MangaViewHolder(private val binding: ItemRecyclerBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(model: AnimeData?) = with(binding) {
-            Glide.with(imageItem.context).load(model?.attributes?.posterImage?.original)
+        fun onBind(model: MangaData?) = with(binding) {
+            Glide.with(imageItem.context).load(model?.attributes?.posterImageManga?.original)
                 .into(imageItem)
             txtTitleItem.text = model?.attributes?.titles?.enJp
         }
@@ -28,27 +28,27 @@ class AnimeAdapter(private val onClickListener: (id: String) -> Unit) :
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimeViewHolder {
-        return AnimeViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MangaViewHolder {
+        return MangaViewHolder(
             ItemRecyclerBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )
     }
 
-    override fun onBindViewHolder(holder: AnimeViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MangaViewHolder, position: Int) {
         getItem(position).let {
             holder.onBind(it)
         }
     }
 
     companion object {
-        val diffUtil = object : DiffUtil.ItemCallback<AnimeData>() {
-            override fun areItemsTheSame(oldItem: AnimeData, newItem: AnimeData): Boolean {
+        val diffUtil = object : DiffUtil.ItemCallback<MangaData>() {
+            override fun areItemsTheSame(oldItem: MangaData, newItem: MangaData): Boolean {
                 return oldItem.attributes.titles == newItem.attributes.titles
             }
 
-            override fun areContentsTheSame(oldItem: AnimeData, newItem: AnimeData): Boolean {
+            override fun areContentsTheSame(oldItem: MangaData, newItem: MangaData): Boolean {
                 return oldItem == newItem
             }
         }
