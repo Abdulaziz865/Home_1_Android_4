@@ -8,5 +8,5 @@ import javax.inject.Inject
 @HiltViewModel
 class MangaViewModel @Inject constructor(private val repository: MangaRepository) :
     BaseViewModel() {
-    fun getMangaScene() = repository.getManga()
+    fun fetchManga() = repository.fetchManga()
 }

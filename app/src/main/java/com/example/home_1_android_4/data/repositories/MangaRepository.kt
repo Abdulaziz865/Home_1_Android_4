@@ -7,11 +7,11 @@ import javax.inject.Inject
 class MangaRepository @Inject constructor(private val mangaApiService: MangaApiService) :
     BaseRepository() {
 
-    fun getManga() = doRequest {
+    fun fetchManga() = doRequest {
         mangaApiService.fetchManga()
     }
 
-    fun getSingleManga(id: Int) = doRequest {
+    fun fetchMangaById(id: Int) = doRequest {
         mangaApiService.fetchMangaById(id)
     }
 }

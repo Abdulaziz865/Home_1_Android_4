@@ -1,4 +1,4 @@
-package com.example.home_1_android_4.ui.adapter
+package com.example.home_1_android_4.ui.adapter.recycler
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
