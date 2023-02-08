@@ -27,7 +27,7 @@ class AnimeDetailFragment :
         viewModel.fetchAnimeById(navArgs.id).observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Failure -> {
-                    toast(it.message)
+                    toast(it.message.toString())
                 }
                 is Resource.Loading -> {
                     toast("Loading...")

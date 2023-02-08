@@ -7,15 +7,13 @@ import com.example.home_1_android_4.R
 import com.example.home_1_android_4.base.BaseFragment
 import com.example.home_1_android_4.databinding.FragmentAnimeBinding
 import com.example.home_1_android_4.extensions.toast
-import com.example.home_1_android_4.ui.adapter.recycler.AnimeAdapter
-import com.example.home_1_android_4.ui.adapter.view_pager_2.ViewPagerAdapter
+import com.example.home_1_android_4.ui.adapters.AnimeAdapter
 import com.example.home_1_android_4.ui.fragments.home.HomeFragmentDirections
 import com.example.home_1_android_4.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AnimeFragment(
-) : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layout.fragment_anime) {
+class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layout.fragment_anime) {
 
     override val binding by viewBinding(FragmentAnimeBinding::bind)
     override val viewModel: AnimeViewModel by viewModels()
@@ -33,7 +31,7 @@ class AnimeFragment(
         viewModel.fetchAnime().observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Failure -> {
-                    toast(it.message)
+                    toast(it.message.toString())
                 }
                 is Resource.Loading -> {
                     toast("Loading...")

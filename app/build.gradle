@@ -7,8 +7,6 @@ plugins {
     id 'com.google.dagger.hilt.android'
     //Safe Args
     id 'androidx.navigation.safeargs.kotlin'
-    //View Pager
-    id 'kotlin-android-extensions'
 }
 
 android {
@@ -38,7 +36,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    //Binding
     buildFeatures {
         viewBinding true
     }
@@ -47,10 +44,10 @@ android {
 dependencies {
 
     //Core
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.core:core-ktx:1.9.0'
     //AppCompat
     implementation 'androidx.appcompat:appcompat:1.6.0'
-    //Material
+    //UI Components
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'

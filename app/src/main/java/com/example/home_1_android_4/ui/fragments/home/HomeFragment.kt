@@ -1,29 +1,38 @@
 package com.example.home_1_android_4.ui.fragments.home
 
-import androidx.fragment.app.viewModels
+import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.home_1_android_4.R
-import com.example.home_1_android_4.base.BaseFragment
-import com.example.home_1_android_4.base.BaseViewModel
 import com.example.home_1_android_4.databinding.FragmentHomeBinding
-import com.example.home_1_android_4.ui.adapter.home_adapter.HomeAdapter
-import com.example.home_1_android_4.ui.fragments.anime.AnimeFragment
-import com.example.home_1_android_4.ui.fragments.manga.MangaFragment
+import com.example.home_1_android_4.ui.adapters.ViewPagerAdapter
+import com.google.android.material.tabs.TabLayoutMediator
 
-class HomeFragment : BaseFragment<FragmentHomeBinding, BaseViewModel>(R.layout.fragment_home) {
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    override val binding by viewBinding(FragmentHomeBinding::bind)
-    override val viewModel by viewModels<BaseViewModel>()
+    private val binding by viewBinding(FragmentHomeBinding::bind)
 
-    override fun initialize() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initialize()
+    }
+
+    private fun initialize() {
         tabLayout()
     }
 
     private fun tabLayout() {
-        val homeAdapter = HomeAdapter(childFragmentManager)
-        homeAdapter.addFragment(AnimeFragment(), "Anime")
-        homeAdapter.addFragment(MangaFragment(), "Manga")
-        binding.viewPager.adapter = homeAdapter
-        binding.tabLayout.setupWithViewPager(binding.viewPager)
+        binding.viewPager.adapter = ViewPagerAdapter(this)
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+            when (position) {
+                0 -> {
+                    tab.text = "Anime"
+                }
+                1 -> {
+                    tab.text = "Manga"
+                }
+            }
+        }.attach()
     }
 }

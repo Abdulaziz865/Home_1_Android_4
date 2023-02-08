@@ -10,7 +10,7 @@ abstract class BaseRepository {
         try {
             emit(Resource.Success(request()))
         } catch (ioException: Exception) {
-            emit(Resource.Failure(null ,ioException.localizedMessage ?: "Что-то пошло не так..."))
+            emit(Resource.Failure(ioException.localizedMessage ?: "Что-то пошло не так..."))
         }
     }
 }

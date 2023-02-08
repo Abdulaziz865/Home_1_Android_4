@@ -7,8 +7,7 @@ import com.example.home_1_android_4.R
 import com.example.home_1_android_4.base.BaseFragment
 import com.example.home_1_android_4.databinding.FragmentMangaBinding
 import com.example.home_1_android_4.extensions.toast
-import com.example.home_1_android_4.ui.adapter.recycler.MangaAdapter
-import com.example.home_1_android_4.ui.fragments.anime.AnimeFragment
+import com.example.home_1_android_4.ui.adapters.MangaAdapter
 import com.example.home_1_android_4.ui.fragments.home.HomeFragmentDirections
 import com.example.home_1_android_4.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,7 +31,7 @@ class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layou
         viewModel.fetchManga().observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Failure -> {
-                    toast(it.message)
+                    toast(it.message.toString())
                 }
                 is Resource.Loading -> {
                     toast("Loading...")

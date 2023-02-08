@@ -15,8 +15,8 @@ abstract class BaseFragment<VB : ViewBinding , VM : BaseViewModel>(@LayoutRes la
         super.onViewCreated(view, savedInstanceState)
         initialize()
         setupListeners()
-        setupSubscribes()
         setupRequests()
+        setupSubscribes()
     }
 
     protected open fun initialize(){
@@ -27,11 +27,11 @@ abstract class BaseFragment<VB : ViewBinding , VM : BaseViewModel>(@LayoutRes la
 
     }
 
-    protected open fun setupSubscribes(){
+    protected open fun setupRequests(){
 
     }
 
-    protected open fun setupRequests(){
+    protected open fun setupSubscribes(){
 
     }
 }
