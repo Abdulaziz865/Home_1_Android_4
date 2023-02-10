@@ -15,7 +15,7 @@ class AnimePagingSource(private val service: AnimeApiService) : PagingSource<Int
         try {
             val page = params.key ?: DEFAULT_PAGE_NUMBER
             val responce = service.fetchAnime(params.loadSize , page)
-            val nextPageNumber = if (responce.links.next == null) {
+            val nextPageNumber = if(responce.links.next == null) {
                 null
             } else {
                 Uri.parse(responce.links.next).getQueryParameter("page[offset]")!!.toInt()

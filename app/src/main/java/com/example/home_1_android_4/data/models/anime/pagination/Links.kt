@@ -1,4 +1,4 @@
-package com.example.home_1_android_4.data.models.anime
+package com.example.home_1_android_4.data.models.anime.pagination
 
 import com.google.gson.annotations.SerializedName
 

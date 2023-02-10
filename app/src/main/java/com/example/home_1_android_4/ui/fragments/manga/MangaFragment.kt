@@ -29,10 +29,8 @@ class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layou
 
     private fun subscribeToManga() {
         viewModel.fetchManga().observe(viewLifecycleOwner) {
-            viewModel.fetchManga().observe(viewLifecycleOwner) {
-                lifecycleScope.launch {
-                    mangaAdapter.submitData(it)
-                }
+            lifecycleScope.launch {
+                mangaAdapter.submitData(it)
             }
         }
     }
