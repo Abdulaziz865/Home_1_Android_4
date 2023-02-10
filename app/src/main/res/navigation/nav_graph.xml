@@ -40,4 +40,14 @@
             android:id="@+id/action_homeFragment_to_mangaDetailFragment"
             app:destination="@id/mangaDetailFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/animeFragment"
+        android:name="com.example.home_1_android_4.ui.fragments.anime.AnimeFragment"
+        android:label="fragment_anime"
+        tools:layout="@layout/fragment_anime" />
+    <fragment
+        android:id="@+id/mangaFragment"
+        android:name="com.example.home_1_android_4.ui.fragments.manga.MangaFragment"
+        android:label="fragment_manga"
+        tools:layout="@layout/fragment_manga" />
 </navigation>

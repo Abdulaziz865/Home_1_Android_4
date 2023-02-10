@@ -1,16 +1,16 @@
 package com.example.home_1_android_4.ui.fragments.manga
 
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.home_1_android_4.R
 import com.example.home_1_android_4.base.BaseFragment
 import com.example.home_1_android_4.databinding.FragmentMangaBinding
-import com.example.home_1_android_4.extensions.toast
 import com.example.home_1_android_4.ui.adapters.MangaAdapter
 import com.example.home_1_android_4.ui.fragments.home.HomeFragmentDirections
-import com.example.home_1_android_4.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layout.fragment_manga) {
@@ -29,16 +29,9 @@ class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layou
 
     private fun subscribeToManga() {
         viewModel.fetchManga().observe(viewLifecycleOwner) {
-            when (it) {
-                is Resource.Failure -> {
-                    toast(it.message.toString())
-                }
-                is Resource.Loading -> {
-                    toast("Loading...")
-                }
-                is Resource.Success -> {
-                    mangaAdapter.submitList(it.data?.data)
-                    toast("Success")
+            viewModel.fetchManga().observe(viewLifecycleOwner) {
+                lifecycleScope.launch {
+                    mangaAdapter.submitData(it)
                 }
             }
         }

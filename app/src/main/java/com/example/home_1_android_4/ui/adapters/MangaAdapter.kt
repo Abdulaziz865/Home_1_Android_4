@@ -2,15 +2,15 @@ package com.example.home_1_android_4.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.home_1_android_4.data.models.manga.MangaData
 import com.example.home_1_android_4.databinding.ItemRecyclerBinding
 
 class MangaAdapter(private val onClickListener: (id: String) -> Unit) :
-    ListAdapter<MangaData, MangaAdapter.MangaViewHolder>(diffUtil) {
+    PagingDataAdapter<MangaData, MangaAdapter.MangaViewHolder>(diffUtil) {
 
     inner class MangaViewHolder(private val binding: ItemRecyclerBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -23,18 +23,17 @@ class MangaAdapter(private val onClickListener: (id: String) -> Unit) :
 
         init {
             itemView.setOnClickListener {
-                getItem(bindingAdapterPosition).apply { onClickListener(id) }
+                getItem(bindingAdapterPosition)?.apply { onClickListener(id) }
             }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MangaViewHolder {
-        return MangaViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MangaViewHolder (
             ItemRecyclerBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )
-    }
+
 
     override fun onBindViewHolder(holder: MangaViewHolder, position: Int) {
         getItem(position).let {

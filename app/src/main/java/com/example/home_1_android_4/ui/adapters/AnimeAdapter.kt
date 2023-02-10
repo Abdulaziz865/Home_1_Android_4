@@ -2,15 +2,15 @@ package com.example.home_1_android_4.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.home_1_android_4.data.models.anime.AnimeData
 import com.example.home_1_android_4.databinding.ItemRecyclerBinding
 
 class AnimeAdapter(private val onClickListener: (id: String) -> Unit) :
-    ListAdapter<AnimeData, AnimeAdapter.AnimeViewHolder>(diffUtil) {
+   PagingDataAdapter<AnimeData, AnimeAdapter.AnimeViewHolder>(diffUtil) {
 
     inner class AnimeViewHolder(private val binding: ItemRecyclerBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -23,18 +23,16 @@ class AnimeAdapter(private val onClickListener: (id: String) -> Unit) :
 
         init {
             itemView.setOnClickListener {
-                getItem(bindingAdapterPosition).apply { onClickListener(id) }
+                getItem(bindingAdapterPosition)?.apply { onClickListener(id) }
             }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimeViewHolder {
-        return AnimeViewHolder(
-            ItemRecyclerBinding.inflate(
-                LayoutInflater.from(parent.context), parent, false
-            )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = AnimeViewHolder(
+        ItemRecyclerBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
         )
-    }
+    )
 
     override fun onBindViewHolder(holder: AnimeViewHolder, position: Int) {
         getItem(position).let {

@@ -45,15 +45,19 @@ dependencies {
 
     //Core
     implementation 'androidx.core:core-ktx:1.9.0'
+
     //AppCompat
     implementation 'androidx.appcompat:appcompat:1.6.0'
+
     //UI Components
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
     //LiveCircle
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+
     //Test
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
@@ -93,4 +97,8 @@ dependencies {
     // ViewBinding Property Delegate
     def view_binding_property_delegate = "1.5.6"
     implementation "com.github.kirich1409:viewbindingpropertydelegate-noreflection:$view_binding_property_delegate"
+
+    //Paging 3
+    def paging_version = "3.1.1"
+    implementation "androidx.paging:paging-runtime:$paging_version"
 }

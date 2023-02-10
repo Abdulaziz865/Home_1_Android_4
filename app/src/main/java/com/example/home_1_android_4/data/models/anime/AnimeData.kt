@@ -6,5 +6,7 @@ data class AnimeData(
     @SerializedName("attributes")
     val attributes: Attributes,
     @SerializedName("id")
-    val id: String = ""
+    val id: String = "",
+    @SerializedName("type")
+    val type: String = ""
 )

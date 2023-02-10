@@ -26,5 +26,4 @@ object NetworkModule {
     @Provides
     fun provideMangaApiService(retrofitClient: RetrofitClient): MangaApiService =
         retrofitClient.provideMangaApiService()
-
 }
