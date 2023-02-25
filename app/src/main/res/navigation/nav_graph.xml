@@ -3,51 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/signInFlowFragment">
 
     <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.example.home_1_android_4.ui.fragments.anime.detail.AnimeDetailFragment"
-        android:label="fragment_detail_anime"
-        tools:layout="@layout/fragment_anime_detail">
-
-        <argument
-            android:name="id"
-            android:defaultValue="0"
-            app:argType="integer" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/mangaDetailFragment"
-        android:name="com.example.home_1_android_4.ui.fragments.manga.detail.MangaDetailFragment"
-        android:label="fragment_manga_detail"
-        tools:layout="@layout/fragment_manga_detail">
-
-        <argument
-            android:name="id"
-            android:defaultValue="0"
-            app:argType="integer" />
-    </fragment>
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.home_1_android_4.ui.fragments.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        android:id="@+id/signInFlowFragment"
+        android:name="com.example.home_1_android_4.ui.fragments.sign.flow.SignInFlowFragment"
+        android:label="fragment_sign_in_flow"
+        tools:layout="@layout/fragment_sign_in_flow" >
         <action
-            android:id="@+id/action_homeFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_mangaDetailFragment"
-            app:destination="@id/mangaDetailFragment" />
+            android:id="@+id/action_signInFlowFragment_to_homeFlowFragment"
+            app:destination="@id/homeFlowFragment" />
     </fragment>
     <fragment
-        android:id="@+id/animeFragment"
-        android:name="com.example.home_1_android_4.ui.fragments.anime.AnimeFragment"
-        android:label="fragment_anime"
-        tools:layout="@layout/fragment_anime" />
-    <fragment
-        android:id="@+id/mangaFragment"
-        android:name="com.example.home_1_android_4.ui.fragments.manga.MangaFragment"
-        android:label="fragment_manga"
-        tools:layout="@layout/fragment_manga" />
+        android:id="@+id/homeFlowFragment"
+        android:name="com.example.home_1_android_4.ui.fragments.home.flow.HomeFlowFragment"
+        android:label="fragment_home_flow"
+        tools:layout="@layout/fragment_home_flow" />
 </navigation>

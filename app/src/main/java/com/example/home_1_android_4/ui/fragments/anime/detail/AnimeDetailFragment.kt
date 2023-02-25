@@ -24,22 +24,17 @@ class AnimeDetailFragment :
     }
 
     private fun subscribeToAnimeDetail() = with(binding) {
-        viewModel.fetchAnimeById(navArgs.id).observe(viewLifecycleOwner) {
-            when (it) {
-                is Resource.Failure -> {
-                    toast(it.message.toString())
-                }
-                is Resource.Loading -> {
-                    toast("Loading...")
-                }
-                is Resource.Success -> {
-                    Glide.with(imageItemDetailAnime.context)
-                        .load(it.data?.data?.attributes?.posterImage?.original)
+        viewModel.fetchAnimeById(navArgs.id).subscribe(
+            onFailure = {
+                toast(it)
+            },
+            onSuccess = {
+                it.data.let {
+                    Glide.with(imageItemDetailAnime.context).load(it.attributes.posterImage.original)
                         .into(imageItemDetailAnime)
-                    titleItemDetailAnime.text = it.data?.data?.attributes?.titles?.enJp
-                    toast("Success")
+                    titleItemDetailAnime.text = it.attributes.titles.enJp
                 }
             }
-        }
+        )
     }
 }

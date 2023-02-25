@@ -36,6 +36,6 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
     }
 
     private fun onClickItem(id: String) {
-        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(id.toInt()))
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragment2ToAnimeDetailFragment(id.toInt()))
     }
 }

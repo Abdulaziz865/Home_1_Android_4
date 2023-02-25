@@ -37,9 +37,7 @@ class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layou
 
     private fun onClickItem(id: String) {
         findNavController().navigate(
-            HomeFragmentDirections.actionHomeFragmentToMangaDetailFragment(
-                id.toInt()
-            )
+            HomeFragmentDirections.actionHomeFragment2ToMangaDetailFragment2(id.toInt())
         )
     }
 }

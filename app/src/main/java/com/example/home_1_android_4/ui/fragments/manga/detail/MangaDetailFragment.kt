@@ -24,22 +24,17 @@ class MangaDetailFragment :
     }
 
     private fun subscribeToMangaDetail() = with(binding) {
-        viewModel.fetchMangaById(navArgs.id).observe(viewLifecycleOwner) {
-            when (it) {
-                is Resource.Failure -> {
-                    toast(it.message.toString())
-                }
-                is Resource.Loading -> {
-                    toast("Loading...")
-                }
-                is Resource.Success -> {
-                    Glide.with(imageItemDetailManga.context)
-                        .load(it.data?.data?.attributes?.posterImageManga?.original)
+        viewModel.fetchMangaById(navArgs.id).subscribe(
+            onFailure = {
+                toast(it)
+            },
+            onSuccess = {
+                it.data.let {
+                    Glide.with(imageItemDetailManga.context).load(it.attributes.posterImageManga.original)
                         .into(imageItemDetailManga)
-                    titleItemDetailManga.text = it.data?.data?.attributes?.titles?.enJp
-                    toast("Success")
+                    titleItemDetailManga.text = it.attributes.titles.enJp
                 }
             }
-        }
+        )
     }
 }

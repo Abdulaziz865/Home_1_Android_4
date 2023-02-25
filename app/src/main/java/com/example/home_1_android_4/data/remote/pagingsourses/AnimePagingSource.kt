@@ -14,8 +14,8 @@ class AnimePagingSource(private val service: AnimeApiService) : PagingSource<Int
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, AnimeData> {
         try {
             val page = params.key ?: DEFAULT_PAGE_NUMBER
-            val responce = service.fetchAnime(params.loadSize , page)
-            val nextPageNumber = if(responce.links.next == null) {
+            val responce = service.fetchAnime(params.loadSize, page)
+            val nextPageNumber = if (responce.links.next == null) {
                 null
             } else {
                 Uri.parse(responce.links.next).getQueryParameter("page[offset]")!!.toInt()
